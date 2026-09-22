@@ -1,5 +1,232 @@
-안녕하세요.
-Hello!!
-점점점
-하하하하
-히히히히히
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="내게 맞는 휴대폰과 요금제를 편하게 상담받는 곳, 오프화이트 모바일.">
+	<title>OFFWHITE MOBILE — 휴대폰 상담이 쉬운 매장</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+	<style>
+		:root {
+			--ink: #17211d;
+			--muted: #66706a;
+			--paper: #f2eee8;
+			--cream: #fbfaf7;
+			--line: #ded9d2;
+			--accent: #d93632;
+			--sage: #f0d9d2;
+			--serif: Georgia, 'Times New Roman', serif;
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body { margin: 0; color: var(--ink); background: var(--paper); font-family: 'Manrope', 'Noto Sans KR', sans-serif; }
+		a { color: inherit; text-decoration: none; }
+		img { display: block; width: 100%; object-fit: cover; }
+		.container { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+		.mono { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+
+		header { position: absolute; z-index: 2; top: 0; width: 100%; color: var(--ink); }
+		.nav { height: 88px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(23,33,29,.18); }
+		.brand { font-weight: 800; font-size: 19px; letter-spacing: -.06em; }
+		.brand span { color: var(--accent); }
+		.nav-links { display: flex; gap: 34px; font-size: 13px; }
+		.nav-links a { opacity: .66; transition: opacity .2s; }
+		.nav-links a:hover { opacity: 1; }
+		.nav-visit { border: 1px solid var(--ink); padding: 11px 17px; border-radius: 100px; font-size: 12px; }
+		.nav-visit strong { color: var(--accent); font-weight: 700; }
+
+		.hero { min-height: 760px; position: relative; display: flex; align-items: flex-end; overflow: hidden; color: var(--ink); background: var(--paper); border-bottom: 7px solid var(--accent); }
+		.hero-content { position: relative; z-index: 1; width: min(1180px, calc(100% - 48px)); margin: 0 auto 92px; }
+		.eyebrow { color: var(--accent); margin-bottom: 22px; }
+		h1 { max-width: 590px; margin: 0; font-size: clamp(48px, 7vw, 86px); line-height: .98; letter-spacing: -.075em; font-weight: 700; }
+		h1 em { color: var(--accent); font-family: var(--serif); font-weight: 400; letter-spacing: -.08em; }
+		.hero-bottom { margin-top: 38px; display: flex; align-items: end; justify-content: space-between; max-width: 760px; }
+		.hero-copy { max-width: 325px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+		.hero-actions { display: flex; gap: 12px; margin-top: 28px; }
+		.action-button { display: inline-flex; align-items: center; gap: 10px; padding: 14px 19px; border-radius: 100px; color: var(--ink); background: #fff; font-size: 12px; font-weight: 700; transition: transform .2s, background .2s; }
+		.action-button:hover { transform: translateY(-3px); background: #fff; }
+		.action-button.dark { color: #fff; background: var(--accent); }
+		.circle-arrow { width: 56px; height: 56px; display: grid; place-items: center; border: 1px solid var(--ink); border-radius: 50%; font-size: 21px; transition: background .2s, transform .2s; }
+		.circle-arrow:hover { background: var(--accent); border-color: var(--accent); transform: translateY(4px); }
+
+		.intro { padding: 116px 0 132px; background: var(--cream); }
+		.intro-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 10%; align-items: start; }
+		.section-label { color: var(--accent); margin-bottom: 24px; }
+		.intro h2 { max-width: 480px; margin: 0; font-size: clamp(32px, 4.6vw, 60px); line-height: 1.08; letter-spacing: -.07em; }
+		.intro h2 em { font-family: var(--serif); font-weight: 400; }
+		.intro-text { padding-top: 34px; max-width: 440px; color: var(--muted); font-size: 15px; line-height: 1.9; }
+		.intro-text strong { display: block; margin-bottom: 22px; color: var(--ink); font-size: 17px; line-height: 1.6; }
+
+		.feature { display: grid; grid-template-columns: 1fr 1fr; min-height: 620px; }
+		.feature-photo { min-height: 500px; background: url('https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=1300&q=85') center/cover; }
+		.feature-copy { display: flex; flex-direction: column; justify-content: space-between; padding: 78px clamp(32px, 7vw, 106px); background: var(--sage); }
+		.feature-copy h2 { margin: 0; max-width: 390px; font-size: clamp(37px, 4vw, 57px); line-height: 1.02; letter-spacing: -.075em; }
+		.feature-copy h2 em { font-family: var(--serif); font-weight: 400; }
+		.feature-copy p { max-width: 335px; margin: 34px 0 0; color: #3d4b40; line-height: 1.9; font-size: 14px; }
+		.text-link { display: inline-flex; align-items: center; gap: 14px; width: fit-content; border-bottom: 1px solid currentColor; padding-bottom: 8px; font-size: 12px; }
+		.text-link span { font-size: 18px; transition: transform .2s; }
+		.text-link:hover span { transform: translateX(5px); }
+
+		.visit { padding: 126px 0 140px; background: var(--cream); }
+		.visit-head { display: flex; justify-content: space-between; align-items: end; margin-bottom: 48px; }
+		.visit h2 { margin: 0; font-size: clamp(38px, 5vw, 64px); line-height: 1; letter-spacing: -.08em; }
+		.visit h2 em { font-family: var(--serif); font-weight: 400; }
+		.visit-head p { max-width: 220px; color: var(--muted); font-size: 13px; line-height: 1.7; text-align: right; }
+		.visit-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 20px; }
+		.visit-map { min-height: 370px; padding: 26px; position: relative; overflow: hidden; background: #deded0 url('https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?auto=format&fit=crop&w=1300&q=80') center/cover; }
+		.visit-map::after { content: ''; position: absolute; inset: 0; background: rgba(217,215,195,.42); mix-blend-mode: screen; }
+		.pin { position: absolute; z-index: 1; top: 45%; left: 51%; width: 54px; height: 54px; display: grid; place-items: center; color: white; background: var(--accent); border: 7px solid rgba(255,255,255,.75); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); box-shadow: 0 8px 20px rgba(60,43,25,.22); }
+		.pin::before { content: ''; width: 10px; height: 10px; background: white; border-radius: 50%; }
+		.visit-card { display: flex; flex-direction: column; justify-content: space-between; padding: 30px; border: 1px solid var(--line); }
+		.visit-card h3 { margin: 0; font-size: 21px; letter-spacing: -.04em; }
+		.consult-note { margin: 12px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+		.consult-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 26px; }
+		.consult-button { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 46px; border-radius: 4px; color: #fff; background: var(--accent); font-size: 12px; font-weight: 700; }
+		.consult-button.kakao { color: var(--ink); background: #f5da48; }
+		.consult-bar { display: none; }
+		.details { display: grid; gap: 19px; margin-top: 40px; }
+		.detail { display: grid; grid-template-columns: 84px 1fr; gap: 9px; padding-bottom: 17px; border-bottom: 1px solid var(--line); font-size: 13px; }
+		.detail dt { color: var(--muted); }
+		.detail dd { margin: 0; line-height: 1.6; }
+		.detail dd span { color: var(--accent); }
+
+		footer { padding: 30px 0; background: var(--ink); color: #e8e8dd; }
+		.footer-inner { display: flex; justify-content: space-between; align-items: center; }
+		footer .brand { font-size: 16px; }
+		footer small { color: #879087; font-size: 11px; }
+		.fade-up { animation: fadeUp .9s ease both; }
+		@keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+
+		@media (max-width: 700px) {
+			.container, .hero-content { width: min(100% - 36px, 1180px); }
+			.nav { height: 70px; }
+			.nav-links { display: none; }
+			.nav-visit { padding: 9px 13px; }
+			.hero { min-height: 680px; }
+			.hero-content { margin-bottom: 58px; }
+			.hero-bottom { align-items: center; margin-top: 28px; }
+			.circle-arrow { flex: 0 0 auto; }
+			.intro { padding: 80px 0 88px; }
+			.intro-grid, .feature, .visit-grid { grid-template-columns: 1fr; }
+			.intro-text { padding-top: 38px; }
+			.feature-photo { min-height: 330px; }
+			.feature-copy { min-height: 500px; padding: 54px 30px; }
+			.visit { padding: 84px 0 92px; }
+			.visit-head { display: block; margin-bottom: 32px; }
+			.visit-head p { margin-top: 20px; text-align: left; }
+			.visit-map { min-height: 275px; }
+			.visit-card { min-height: 375px; }
+			.consult-bar { position: fixed; z-index: 4; right: 14px; bottom: 14px; left: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 7px; padding: 7px; background: rgba(23,33,29,.94); box-shadow: 0 10px 28px rgba(23,33,29,.2); }
+			.consult-bar a { display: grid; place-items: center; min-height: 42px; color: #fff; border-radius: 3px; font-size: 12px; font-weight: 700; }
+			.consult-bar a:first-child { background: var(--accent); }
+			.consult-bar a:last-child { color: var(--ink); background: #f5da48; }
+			.footer-inner { display: block; }
+			footer small { display: block; margin-top: 12px; }
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<nav class="nav container" aria-label="주요 메뉴">
+			<a class="brand" href="#top">OFF<span>/</span>WHITE</a>
+			<div class="nav-links">
+				<a href="#story">Our story</a>
+				<a href="#space">The space</a>
+				<a href="#visit">Visit us</a>
+			</div>
+			<a class="nav-visit" href="tel:0212345678"><strong>상담</strong> 바로 연결 <span aria-hidden="true">↗</span></a>
+		</nav>
+	</header>
+
+	<main id="top">
+		<section class="hero">
+			<div class="hero-content fade-up">
+				<div class="eyebrow mono">Your next phone, made simple</div>
+				<h1>휴대폰 상담이<br><em>쉬운 매장</em></h1>
+				<div class="mono" style="margin-top: 21px; color: #b8c8b8;">Goyang city · 고양시에서 만나요</div>
+				<div class="hero-bottom">
+					<div>
+						<p class="hero-copy">복잡한 요금제부터 기기 변경까지, 내 상황에 꼭 맞는 선택을 함께 찾아드립니다.</p>
+						<div class="hero-actions">
+							<a class="action-button dark" href="tel:0212345678">전화로 상담하기 <span aria-hidden="true">↗</span></a>
+							<a class="action-button" href="#visit">상담 예약</a>
+						</div>
+					</div>
+					<a class="circle-arrow" href="#story" aria-label="아래로 이동">↓</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="intro" id="story">
+			<div class="container intro-grid">
+				<div>
+					<div class="section-label mono">01 / Our story</div>
+					<h2>어려운 선택을<br><em>쉽게</em> 만듭니다.</h2>
+				</div>
+				<div class="intro-text">
+					<strong>기기만 권하지 않습니다. 지금 쓰는 방식과 앞으로 필요한 것부터 먼저 듣습니다.</strong>
+					번호이동, 기기변경, 가족 결합, 인터넷까지. 헷갈리는 조건은 한눈에 비교하고, 불필요한 비용은 덜어내는 상담을 약속드립니다.
+				</div>
+			</div>
+		</section>
+
+		<section class="feature" id="space">
+			<div class="feature-photo" role="img" aria-label="햇살이 드는 매장 내부"></div>
+			<div class="feature-copy">
+				<div>
+					<div class="section-label mono">02 / The space</div>
+					<h2>방문 전에도<br><em>편하게 물어보세요</em></h2>
+					<p>재고 확인, 원하는 모델 비교, 예상 월 납부금까지 미리 상담할 수 있습니다. 매장에 오기 전 1분 문의로 시간을 아껴보세요.</p>
+				</div>
+					<a class="text-link" href="tel:0212345678">지금 상담 시작하기 <span aria-hidden="true">→</span></a>
+			</div>
+		</section>
+
+		<section class="visit" id="visit">
+			<div class="container">
+				<div class="visit-head">
+					<div>
+						<div class="section-label mono">03 / Come by</div>
+						<h2>고양에서 먼저,<br><em>물어보세요.</em></h2>
+					</div>
+					<p>방문 전 간단한 상담으로<br>맞춤 안내를 준비해둘게요.</p>
+				</div>
+				<div class="visit-grid">
+					<div class="visit-map" aria-label="매장 위치 지도 이미지"><div class="pin" aria-hidden="true"></div></div>
+					<div class="visit-card">
+						<div>
+							<h3>OFFWHITE MOBILE 성수</h3>
+							<p class="consult-note">상담 내용을 남겨주시면 확인 후 빠르게 연락드립니다.</p>
+							<div class="consult-buttons">
+								<a class="consult-button" href="tel:0212345678">☎ 전화 상담</a>
+								<a class="consult-button kakao" href="https://pf.kakao.com/" target="_blank" rel="noreferrer">● 카톡 상담</a>
+							</div>
+							<dl class="details">
+								<div class="detail"><dt>주소</dt><dd>서울 성동구 연무장길 17<br>1층 오프화이트</dd></div>
+								<div class="detail"><dt>영업시간</dt><dd>매일 &nbsp; 10:00 — 20:00<br><span>방문 전 전화 상담 가능</span></dd></div>
+								<div class="detail"><dt>문의</dt><dd>02 1234 5678</dd></div>
+							</dl>
+						</div>
+						<a class="text-link" href="https://map.naver.com/" target="_blank" rel="noreferrer">지도에서 길찾기 <span aria-hidden="true">↗</span></a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="container footer-inner">
+			<a class="brand" href="#top">OFF<span>/</span>WHITE</a>
+			<small>© 2024 OFFWHITE. Made for everyday moments.</small>
+		</div>
+	</footer>
+	<div class="consult-bar" aria-label="빠른 상담 메뉴">
+		<a href="tel:0212345678">전화 상담</a>
+		<a href="https://pf.kakao.com/" target="_blank" rel="noreferrer">카톡 상담</a>
+	</div>
+</body>
+</html>
+
